@@ -31,11 +31,12 @@
 ### 1. 一键初始化 K3s 集群环境
 ```bash
 chmod +x scripts/install_k3s.sh
-bash scripts/install_k3s.sh```
-2. 启动容器化监控底座 (Zabbix)
-```Bash
+bash scripts/install_k3s.sh
+```
+###2. 启动容器化监控底座 (Zabbix)
+```bash
 cp .env_db_password.example .env_db_password
-docker-compose up -d```
-3. 部署 Nginx 业务服务到 K3s
-```Bash
+docker-compose up -d
+###3. 部署 Nginx 业务服务到 K3s
+```bash
 kubectl apply -f k8s-nginx-app.yaml
