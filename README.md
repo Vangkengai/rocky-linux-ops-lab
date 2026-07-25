@@ -1,6 +1,7 @@
 Rocky Linux 9 云原生运维实战实验室 (Ops-Lab)
 项目概述
-本项目记录了在 Rocky Linux 9 环境下，从传统 Linux 运维向容器化及云原生架构演进的全过程。项目涵盖了自动化部署、集群编排及深度业务监控的完整链路。
+本项目记录了在 Rocky Linux 9 环境下，从传统 Linux 运维向容器化及云原生架构演进的全过程
+项目涵盖了自动化部署、集群编排及深度业务监控的完整链路
 
 技术栈
 操作系统: Rocky Linux 9 (RHEL 兼容)
@@ -10,7 +11,6 @@ Rocky Linux 9 云原生运维实战实验室 (Ops-Lab)
 网络插件: Traefik (Ingress) / Cloudflare WARP (Network Optimization)
 
 核心组件说明
-
 容器化监控底座
 基于 Docker Compose 快速构建 Zabbix 监控环境。
 解决容器环境下的 MySQL 依赖、端口冲突及 Nginx 反向代理配置。
@@ -28,6 +28,20 @@ K3s 集群与业务编排
    mem: 实时获取内存占用，防止 OOM。
    port: 监控 Service 端口存活状态。
 集成方式: 脚本可直接作为 Zabbix 的 UserParameter，实现业务级告警自动化。
+
+## 🚀 快速开始
+
+### 1. 一键初始化 K3s 集群环境
+```bash
+chmod +x scripts/install_k3s.sh
+bash scripts/install_k3s.sh
+
+2. 启动容器化监控底座 (Zabbix)
+cp .env_db_password.example .env_db_password
+docker-compose up -d
+
+3. 部署 Nginx 业务服务到 K3s
+kubectl apply -f k8s-nginx-app.yaml
 
 生产实战经验 (Lesson Learned)
 环境隔离: 处理了 sudo 环境下 k3s 路径失效的问题，通过环境变量持久化确保了脚本的自动化运行。
