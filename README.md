@@ -29,18 +29,16 @@ K3s 集群与业务编排
    port: 监控 Service 端口存活状态。
 集成方式: 脚本可直接作为 Zabbix 的 UserParameter，实现业务级告警自动化。
 
-## 🚀 快速开始
+##  快速开始
 
 ### 1. 一键初始化 K3s 集群环境
 ```bash
 chmod +x scripts/install_k3s.sh
 bash scripts/install_k3s.sh
 
-2. 启动容器化监控底座 (Zabbix)
 cp .env_db_password.example .env_db_password
 docker-compose up -d
 
-3. 部署 Nginx 业务服务到 K3s
 kubectl apply -f k8s-nginx-app.yaml
 
 生产实战经验 (Lesson Learned)
