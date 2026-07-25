@@ -21,8 +21,8 @@ K3s 集群与业务编排
 资源编排: 实现了 Nginx 业务的 Deployment 配置，设置了合理的 Resource Limits (CPU/MEM)。
 流量接入: 通过 Service 和 Ingress (Traefik) 实现业务的外部访问。
 
-3. 自动化监控脚本
-监控自愈逻辑: 编写自定义 Shell 脚本，通过 `kubectl top` 实时采集 Pod 指标。
+自动化监控脚本
+监控自愈逻辑: 编写自定义 Shell 脚本，通过kubectl top实时采集 Pod 指标。
 关键指标: 
    cpu: 监测容器计算资源消耗。
    mem: 实时获取内存占用，防止 OOM。
